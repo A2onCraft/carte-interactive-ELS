@@ -1,108 +1,97 @@
 var blueIcon = new L.Icon({
-	iconUrl: 'img/marker-icon-2x-blue.png',
-	shadowUrl: 'img/marker-shadow.png',
+	iconUrl: "img/marker-icon-2x-blue.png",
+	shadowUrl: "img/marker-shadow.png",
 	iconSize: [25, 41],
 	iconAnchor: [12, 41],
 	popupAnchor: [1, -34],
 	shadowSize: [41, 41]
-});
-
-var goldIcon = new L.Icon({
-	iconUrl: 'img/marker-icon-2x-gold.png',
-	shadowUrl: 'img/marker-shadow.png',
+}),
+goldIcon = new L.Icon({
+	iconUrl: "img/marker-icon-2x-gold.png",
+	shadowUrl: "img/marker-shadow.png",
 	iconSize: [25, 41],
 	iconAnchor: [12, 41],
 	popupAnchor: [1, -34],
 	shadowSize: [41, 41]
-});
-
-var redIcon = new L.Icon({
-	iconUrl: 'img/marker-icon-2x-red.png',
-	shadowUrl: 'img/marker-shadow.png',
+}),
+redIcon = new L.Icon({
+	iconUrl: "img/marker-icon-2x-red.png",
+	shadowUrl: "img/marker-shadow.png",
 	iconSize: [25, 41],
 	iconAnchor: [12, 41],
 	popupAnchor: [1, -34],
 	shadowSize: [41, 41]
-});
-
-var greenIcon = new L.Icon({
-	iconUrl: 'img/marker-icon-2x-green.png',
-	shadowUrl: 'img/marker-shadow.png',
+}),
+greenIcon = new L.Icon({
+	iconUrl: "img/marker-icon-2x-green.png",
+	shadowUrl: "img/marker-shadow.png",
 	iconSize: [25, 41],
 	iconAnchor: [12, 41],
 	popupAnchor: [1, -34],
 	shadowSize: [41, 41]
-});
-
-var orangeIcon = new L.Icon({
-	iconUrl: 'img/marker-icon-2x-orange.png',
-	shadowUrl: 'img/marker-shadow.png',
+}),
+orangeIcon = new L.Icon({
+	iconUrl: "img/marker-icon-2x-orange.png",
+	shadowUrl: "img/marker-shadow.png",
 	iconSize: [25, 41],
 	iconAnchor: [12, 41],
 	popupAnchor: [1, -34],
 	shadowSize: [41, 41]
-});
-
-var yellowIcon = new L.Icon({
-	iconUrl: 'img/marker-icon-2x-yellow.png',
-	shadowUrl: 'img/marker-shadow.png',
+}),
+yellowIcon = new L.Icon({
+	iconUrl: "img/marker-icon-2x-yellow.png",
+	shadowUrl: "img/marker-shadow.png",
 	iconSize: [25, 41],
 	iconAnchor: [12, 41],
 	popupAnchor: [1, -34],
 	shadowSize: [41, 41]
-});
-
-var violetIcon = new L.Icon({
-	iconUrl: 'img/marker-icon-2x-violet.png',
-	shadowUrl: 'img/marker-shadow.png',
+}),
+violetIcon = new L.Icon({
+	iconUrl: "img/marker-icon-2x-violet.png",
+	shadowUrl: "img/marker-shadow.png",
 	iconSize: [25, 41],
 	iconAnchor: [12, 41],
 	popupAnchor: [1, -34],
 	shadowSize: [41, 41]
-});
-
-var greyIcon = new L.Icon({
-	iconUrl: 'img/marker-icon-2x-grey.png',
-	shadowUrl: 'img/marker-shadow.png',
+}),
+greyIcon = new L.Icon({
+	iconUrl: "img/marker-icon-2x-grey.png",
+	shadowUrl: "img/marker-shadow.png",
 	iconSize: [25, 41],
 	iconAnchor: [12, 41],
 	popupAnchor: [1, -34],
 	shadowSize: [41, 41]
-});
-
-var blackIcon = new L.Icon({
-	iconUrl: 'img/marker-icon-2x-black.png',
-	shadowUrl: 'img/marker-shadow.png',
+}),
+blackIcon = new L.Icon({
+	iconUrl: "img/marker-icon-2x-black.png",
+	shadowUrl: "img/marker-shadow.png",
 	iconSize: [25, 41],
 	iconAnchor: [12, 41],
 	popupAnchor: [1, -34],
 	shadowSize: [41, 41]
-});
-
-/*Partie ajoutée par l'équipe de développement de l'IUT*/
-var pinkIcon = new L.Icon({
-	iconUrl: 'img/marker-icon-2x-pink.png',
-	shadowUrl: 'img/marker-shadow.png',
+}),
+/*Ajout de couleurs*/
+pinkIcon = new L.Icon({
+	iconUrl: "img/marker-icon-2x-pink.png",
+	shadowUrl: "img/marker-shadow.png",
 	iconSize: [25, 41],
 	iconAnchor: [12, 41],
 	popupAnchor: [1, -34],
 	shadowSize: [41, 41]
-});
-
-var cyanIcon = new L.Icon({
-	iconUrl: 'img/marker-icon-2x-cyan.png',
-	shadowUrl: 'img/marker-shadow.png',
+}),
+cyanIcon = new L.Icon({
+	iconUrl: "img/marker-icon-2x-cyan.png",
+	shadowUrl: "img/marker-shadow.png",
 	iconSize: [25, 41],
 	iconAnchor: [12, 41],
 	popupAnchor: [1, -34],
 	shadowSize: [41, 41]
-});
-
-var darkblueIcon = new L.Icon({
-	iconUrl: 'img/marker-icon-2x-darkblue.png',
-	shadowUrl: 'img/marker-shadow.png',
+}),
+darkblueIcon = new L.Icon({
+	iconUrl: "img/marker-icon-2x-darkblue.png",
+	shadowUrl: "img/marker-shadow.png",
 	iconSize: [25, 41],
 	iconAnchor: [12, 41],
 	popupAnchor: [1, -34],
 	shadowSize: [41, 41]
-});
+})
