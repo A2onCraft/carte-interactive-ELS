@@ -2,7 +2,7 @@
 ![Capture d'écran](/img/img-readme.png)
 
 ## Menu contextuel
-Le menu contextuel à gauche de l'écran continent un filtre et les liens des GitHub
+Le menu contextuel à gauche de l'écran contient un filtre et les liens des GitHub
 ![Capture d'écran](/img/img-readme-2.png)
 
 ## Mode "satellite"
