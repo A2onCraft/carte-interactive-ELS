@@ -12,449 +12,450 @@
 	<link href=https://unpkg.com/leaflet@1.0.1/dist/leaflet.css rel=stylesheet>
 
 	<style>
-	#map,
-	body,
-	html {
-		margin: 0;
-		padding: 0;
-		height: 100%;
-		width: 100%
-	}
-
-	#map,
-	body,
-	html {
-		height: 100%;
-		font: 10pt "Helvetica Neue", Arial, Helvetica, sans-serif
-	}
-
-	.red {
-		border-right: rgb(202, 40, 59) 5px solid
-	}
-
-	.blue {
-		border-right: rgb(43, 130, 203) 5px solid
-	}
-
-	.gold {
-		border-right: rgb(255, 211, 38) 5px solid
-	}
-
-	.orange {
-		border-right: rgb(203, 133, 43) 5px solid
-	}
-
-	.green {
-		border-right: rgb(40, 173, 37) 5px solid
-	}
-
-	.yellow {
-		border-right: rgb(203, 197, 45) 5px solid
-	}
-
-	.grey {
-		border-right: rgb(123, 123, 123) 5px solid
-	}
-
-	.black {
-		border-right: rgb(62, 62, 62) 5px solid
-	}
-
-	.violet {
-		border-right: rgb(156, 45, 203) 5px solid
-	}
-
-	.darkblue {
-		border-right: rgb(5, 2, 186) 5px solid
-	}
-
-	.pink {
-		border-right: rgb(203, 43, 165) 5px solid
-	}
-
-	.cyan {
-		border-right: rgb(43, 204, 193) 5px solid
-	}
-
-	.leaflet-contextmenu {
-		display: none;
-		box-shadow: 0 1px 7px rgba(0, 0, 0, .4);
-		-webkit-border-radius: 4px;
-		border-radius: 4px;
-		padding: 4px 0;
-		background-color: #fff;
-		cursor: default;
-		-webkit-user-select: none;
-		-moz-user-select: none;
-		user-select: none
-	}
-
-	.leaflet-contextmenu a.leaflet-contextmenu-item {
-		display: block;
-		color: #222;
-		font-size: 12px;
-		line-height: 20px;
-		text-decoration: none;
-		padding: 0 12px;
-		border-top: 1px solid transparent;
-		border-bottom: 1px solid transparent;
-		cursor: default;
-		outline: 0
-	}
-
-	.leaflet-contextmenu a.leaflet-contextmenu-item-disabled {
-		opacity: .5
-	}
-
-	.leaflet-contextmenu a.leaflet-contextmenu-item.over {
-		background-color: #f4f4f4;
-		border-top: 1px solid #f0f0f0;
-		border-bottom: 1px solid #f0f0f0
-	}
-
-	.leaflet-contextmenu a.leaflet-contextmenu-item-disabled.over {
-		background-color: inherit;
-		border-top: 1px solid transparent;
-		border-bottom: 1px solid transparent
-	}
-
-	.leaflet-contextmenu-icon {
-		margin: 2px 8px 0 0;
-		width: 16px;
-		height: 16px;
-		float: left;
-		border: 0
-	}
-
-	.leaflet-contextmenu-separator {
-		border-bottom: 1px solid #ccc;
-		margin: 5px 0
-	}
-
-	.sidebar {
-		position: absolute;
-		top: 0;
-		bottom: 0;
-		width: 100%;
-		overflow: hidden;
-		z-index: 2000
-	}
-
-	.sidebar.collapsed {
-		width: 40px
-	}
-
-	@media (min-width:768px) {
-		.sidebar {
-			top: 10px;
-			bottom: 10px;
-			transition: width .5s
+		#map,
+		body,
+		html {
+			margin: 0;
+			padding: 0;
+			height: 100%;
+			width: 100%
 		}
-	}
 
-	@media (min-width:768px) and (max-width:991px) {
-		.sidebar {
-			width: 305px
+		#map,
+		body,
+		html {
+			height: 100%;
+			font: 10pt "Helvetica Neue", Arial, Helvetica, sans-serif
 		}
-	}
 
-	@media (min-width:992px) and (max-width:1199px) {
-		.sidebar {
-			width: 390px
+		.red {
+			border-right: rgb(202, 40, 59) 5px solid
 		}
-	}
 
-	@media (min-width:1200px) {
-		.sidebar {
-			width: 460px
+		.blue {
+			border-right: rgb(43, 130, 203) 5px solid
 		}
-	}
 
-	.sidebar-left {
-		left: 0
-	}
+		.gold {
+			border-right: rgb(255, 211, 38) 5px solid
+		}
 
-	@media (min-width:768px) {
+		.orange {
+			border-right: rgb(203, 133, 43) 5px solid
+		}
+
+		.green {
+			border-right: rgb(40, 173, 37) 5px solid
+		}
+
+		.yellow {
+			border-right: rgb(203, 197, 45) 5px solid
+		}
+
+		.grey {
+			border-right: rgb(123, 123, 123) 5px solid
+		}
+
+		.black {
+			border-right: rgb(62, 62, 62) 5px solid
+		}
+
+		.violet {
+			border-right: rgb(156, 45, 203) 5px solid
+		}
+
+		.darkblue {
+			border-right: rgb(5, 2, 186) 5px solid
+		}
+
+		.pink {
+			border-right: rgb(203, 43, 165) 5px solid
+		}
+
+		.cyan {
+			border-right: rgb(43, 204, 193) 5px solid
+		}
+
+		.leaflet-contextmenu {
+			display: none;
+			box-shadow: 0 1px 7px rgba(0, 0, 0, .4);
+			-webkit-border-radius: 4px;
+			border-radius: 4px;
+			padding: 4px 0;
+			background-color: #fff;
+			cursor: default;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			user-select: none
+		}
+
+		.leaflet-contextmenu a.leaflet-contextmenu-item {
+			display: block;
+			color: #222;
+			font-size: 12px;
+			line-height: 20px;
+			text-decoration: none;
+			padding: 0 12px;
+			border-top: 1px solid transparent;
+			border-bottom: 1px solid transparent;
+			cursor: default;
+			outline: 0
+		}
+
+		.leaflet-contextmenu a.leaflet-contextmenu-item-disabled {
+			opacity: .5
+		}
+
+		.leaflet-contextmenu a.leaflet-contextmenu-item.over {
+			background-color: #f4f4f4;
+			border-top: 1px solid #f0f0f0;
+			border-bottom: 1px solid #f0f0f0
+		}
+
+		.leaflet-contextmenu a.leaflet-contextmenu-item-disabled.over {
+			background-color: inherit;
+			border-top: 1px solid transparent;
+			border-bottom: 1px solid transparent
+		}
+
+		.leaflet-contextmenu-icon {
+			margin: 2px 8px 0 0;
+			width: 16px;
+			height: 16px;
+			float: left;
+			border: 0
+		}
+
+		.leaflet-contextmenu-separator {
+			border-bottom: 1px solid #ccc;
+			margin: 5px 0
+		}
+
+		.sidebar {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			width: 100%;
+			overflow: hidden;
+			z-index: 2000
+		}
+
+		.sidebar.collapsed {
+			width: 40px
+		}
+
+		@media (min-width:768px) {
+			.sidebar {
+				top: 10px;
+				bottom: 10px;
+				transition: width .5s
+			}
+		}
+
+		@media (min-width:768px) and (max-width:991px) {
+			.sidebar {
+				width: 305px
+			}
+		}
+
+		@media (min-width:992px) and (max-width:1199px) {
+			.sidebar {
+				width: 390px
+			}
+		}
+
+		@media (min-width:1200px) {
+			.sidebar {
+				width: 460px
+			}
+		}
+
 		.sidebar-left {
-			left: 10px
+			left: 0
 		}
-	}
 
-	.sidebar-right {
-		right: 0
-	}
+		@media (min-width:768px) {
+			.sidebar-left {
+				left: 10px
+			}
+		}
 
-	@media (min-width:768px) {
 		.sidebar-right {
-			right: 10px
+			right: 0
 		}
-	}
 
-	.sidebar-tabs {
-		top: 0;
-		bottom: 0;
-		height: 100%;
-		background-color: #fff
-	}
+		@media (min-width:768px) {
+			.sidebar-right {
+				right: 10px
+			}
+		}
 
-	.sidebar-left .sidebar-tabs {
-		left: 0
-	}
+		.sidebar-tabs {
+			top: 0;
+			bottom: 0;
+			height: 100%;
+			background-color: #fff
+		}
 
-	.sidebar-right .sidebar-tabs {
-		right: 0
-	}
+		.sidebar-left .sidebar-tabs {
+			left: 0
+		}
 
-	.sidebar-tabs,
-	.sidebar-tabs>ul {
-		position: absolute;
-		width: 40px;
-		margin: 0;
-		padding: 0;
-		list-style-type: none
-	}
+		.sidebar-right .sidebar-tabs {
+			right: 0
+		}
 
-	.sidebar-tabs>li,
-	.sidebar-tabs>ul>li {
-		width: 100%;
-		height: 40px;
-		color: #333;
-		font-size: 12pt;
-		overflow: hidden;
-		transition: all 80ms
-	}
+		.sidebar-tabs,
+		.sidebar-tabs>ul {
+			position: absolute;
+			width: 40px;
+			margin: 0;
+			padding: 0;
+			list-style-type: none
+		}
 
-	.sidebar-tabs>li:hover,
-	.sidebar-tabs>ul>li:hover {
-		color: #000;
-		background-color: #eee
-	}
+		.sidebar-tabs>li,
+		.sidebar-tabs>ul>li {
+			width: 100%;
+			height: 40px;
+			color: #333;
+			font-size: 12pt;
+			overflow: hidden;
+			transition: all 80ms
+		}
 
-	.sidebar-tabs>li.active,
-	.sidebar-tabs>ul>li.active {
-		color: #fff;
-		background-color: #3c8b2e
-	}
+		.sidebar-tabs>li:hover,
+		.sidebar-tabs>ul>li:hover {
+			color: #000;
+			background-color: #eee
+		}
 
-	.sidebar-tabs>li.disabled,
-	.sidebar-tabs>ul>li.disabled {
-		color: rgba(51, 51, 51, .4)
-	}
+		.sidebar-tabs>li.active,
+		.sidebar-tabs>ul>li.active {
+			color: #fff;
+			background-color: #3c8b2e
+		}
 
-	.sidebar-tabs>li.disabled:hover,
-	.sidebar-tabs>ul>li.disabled:hover {
-		background: 0 0
-	}
+		.sidebar-tabs>li.disabled,
+		.sidebar-tabs>ul>li.disabled {
+			color: rgba(51, 51, 51, .4)
+		}
 
-	.sidebar-tabs>li.disabled>a,
-	.sidebar-tabs>ul>li.disabled>a {
-		cursor: default
-	}
+		.sidebar-tabs>li.disabled:hover,
+		.sidebar-tabs>ul>li.disabled:hover {
+			background: 0 0
+		}
 
-	.sidebar-tabs>li>a,
-	.sidebar-tabs>ul>li>a {
-		display: block;
-		width: 100%;
-		height: 100%;
-		line-height: 40px;
-		color: inherit;
-		text-decoration: none;
-		text-align: center
-	}
+		.sidebar-tabs>li.disabled>a,
+		.sidebar-tabs>ul>li.disabled>a {
+			cursor: default
+		}
 
-	.sidebar-tabs>ul+ul {
-		bottom: 0
-	}
+		.sidebar-tabs>li>a,
+		.sidebar-tabs>ul>li>a {
+			display: block;
+			width: 100%;
+			height: 100%;
+			line-height: 40px;
+			color: inherit;
+			text-decoration: none;
+			text-align: center
+		}
 
-	.sidebar-content {
-		position: absolute;
-		top: 0;
-		bottom: 0;
-		background-color: rgba(255, 255, 255, .95);
-		overflow-x: hidden;
-		overflow-y: auto
-	}
+		.sidebar-tabs>ul+ul {
+			bottom: 0
+		}
 
-	.sidebar-left .sidebar-content {
-		left: 40px;
-		right: 0
-	}
+		.sidebar-content {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			background-color: rgba(255, 255, 255, .95);
+			overflow-x: hidden;
+			overflow-y: auto
+		}
 
-	.sidebar-right .sidebar-content {
-		left: 0;
-		right: 40px
-	}
+		.sidebar-left .sidebar-content {
+			left: 40px;
+			right: 0
+		}
 
-	.sidebar.collapsed>.sidebar-content {
-		overflow-y: hidden
-	}
+		.sidebar-right .sidebar-content {
+			left: 0;
+			right: 40px
+		}
 
-	.sidebar-pane {
-		display: none;
-		left: 0;
-		right: 0;
-		box-sizing: border-box;
-		padding: 10px 20px
-	}
+		.sidebar.collapsed>.sidebar-content {
+			overflow-y: hidden
+		}
 
-	.sidebar-pane.active {
-		display: block
-	}
-
-	@media (min-width:768px) and (max-width:991px) {
 		.sidebar-pane {
-			min-width: 265px
+			display: none;
+			left: 0;
+			right: 0;
+			box-sizing: border-box;
+			padding: 10px 20px
 		}
-	}
 
-	@media (min-width:992px) and (max-width:1199px) {
-		.sidebar-pane {
-			min-width: 350px
+		.sidebar-pane.active {
+			display: block
 		}
-	}
 
-	@media (min-width:1200px) {
-		.sidebar-pane {
-			min-width: 420px
+		@media (min-width:768px) and (max-width:991px) {
+			.sidebar-pane {
+				min-width: 265px
+			}
 		}
-	}
 
-	.sidebar-header {
-		margin: -10px -20px 0;
-		height: 40px;
-		padding: 0 20px;
-		line-height: 40px;
-		font-size: 14.4pt;
-		color: #fff;
-		background-color: #3c8b2e
-	}
+		@media (min-width:992px) and (max-width:1199px) {
+			.sidebar-pane {
+				min-width: 350px
+			}
+		}
 
-	.sidebar-right .sidebar-header {
-		padding-left: 40px
-	}
+		@media (min-width:1200px) {
+			.sidebar-pane {
+				min-width: 420px
+			}
+		}
 
-	.sidebar-close {
-		position: absolute;
-		top: 0;
-		width: 40px;
-		height: 40px;
-		text-align: center;
-		cursor: pointer
-	}
+		.sidebar-header {
+			margin: -10px -20px 0;
+			height: 40px;
+			padding: 0 20px;
+			line-height: 40px;
+			font-size: 14.4pt;
+			color: #fff;
+			background-color: #3c8b2e
+		}
 
-	.sidebar-left .sidebar-close {
-		right: 0
-	}
+		.sidebar-right .sidebar-header {
+			padding-left: 40px
+		}
 
-	.sidebar-right .sidebar-close {
-		left: 0
-	}
+		.sidebar-close {
+			position: absolute;
+			top: 0;
+			width: 40px;
+			height: 40px;
+			text-align: center;
+			cursor: pointer
+		}
 
-	.sidebar-left~.sidebar-map {
-		margin-left: 40px
-	}
+		.sidebar-left .sidebar-close {
+			right: 0
+		}
 
-	@media (min-width:768px) {
+		.sidebar-right .sidebar-close {
+			left: 0
+		}
+
 		.sidebar-left~.sidebar-map {
-			margin-left: 0
+			margin-left: 40px
 		}
-	}
 
-	.sidebar-right~.sidebar-map {
-		margin-right: 40px
-	}
+		@media (min-width:768px) {
+			.sidebar-left~.sidebar-map {
+				margin-left: 0
+			}
+		}
 
-	@media (min-width:768px) {
 		.sidebar-right~.sidebar-map {
-			margin-right: 0
+			margin-right: 40px
 		}
-	}
 
-	.sidebar {
-		box-shadow: 0 1px 5px rgba(0, 0, 0, .65)
-	}
+		@media (min-width:768px) {
+			.sidebar-right~.sidebar-map {
+				margin-right: 0
+			}
+		}
 
-	.sidebar.leaflet-touch {
-		box-shadow: none;
-		border-right: 2px solid rgba(0, 0, 0, .2)
-	}
-
-	@media (min-width:768px) {
 		.sidebar {
-			border-radius: 4px
+			box-shadow: 0 1px 5px rgba(0, 0, 0, .65)
 		}
+
 		.sidebar.leaflet-touch {
-			border: 2px solid rgba(0, 0, 0, .2)
+			box-shadow: none;
+			border-right: 2px solid rgba(0, 0, 0, .2)
 		}
-	}
 
-	@media (min-width:768px) {
-		.sidebar-left~.sidebar-map .leaflet-left {
-			transition: left .5s
+		@media (min-width:768px) {
+			.sidebar {
+				border-radius: 4px
+			}
+			.sidebar.leaflet-touch {
+				border: 2px solid rgba(0, 0, 0, .2)
+			}
 		}
-	}
 
-	@media (min-width:768px) and (max-width:991px) {
-		.sidebar-left~.sidebar-map .leaflet-left {
-			left: 315px
+		@media (min-width:768px) {
+			.sidebar-left~.sidebar-map .leaflet-left {
+				transition: left .5s
+			}
 		}
-	}
 
-	@media (min-width:992px) and (max-width:1199px) {
-		.sidebar-left~.sidebar-map .leaflet-left {
-			left: 400px
+		@media (min-width:768px) and (max-width:991px) {
+			.sidebar-left~.sidebar-map .leaflet-left {
+				left: 315px
+			}
 		}
-	}
 
-	@media (min-width:1200px) {
-		.sidebar-left~.sidebar-map .leaflet-left {
-			left: 470px
+		@media (min-width:992px) and (max-width:1199px) {
+			.sidebar-left~.sidebar-map .leaflet-left {
+				left: 400px
+			}
 		}
-	}
 
-	@media (min-width:768px) {
-		.sidebar-left.collapsed~.sidebar-map .leaflet-left {
+		@media (min-width:1200px) {
+			.sidebar-left~.sidebar-map .leaflet-left {
+				left: 470px
+			}
+		}
+
+		@media (min-width:768px) {
+			.sidebar-left.collapsed~.sidebar-map .leaflet-left {
+				left: 50px
+			}
+		}
+
+		@media (min-width:768px) {
+			.sidebar-right~.sidebar-map .leaflet-right {
+				transition: right .5s
+			}
+		}
+
+		@media (min-width:768px) and (max-width:991px) {
+			.sidebar-right~.sidebar-map .leaflet-right {
+				right: 315px
+			}
+		}
+
+		@media (min-width:992px) and (max-width:1199px) {
+			.sidebar-right~.sidebar-map .leaflet-right {
+				right: 400px
+			}
+		}
+
+		@media (min-width:1200px) {
+			.sidebar-right~.sidebar-map .leaflet-right {
+				right: 470px
+			}
+		}
+
+		@media (min-width:768px) {
+			.sidebar-right.collapsed~.sidebar-map .leaflet-right {
+				right: 50px
+			}
+		}
+
+		.leaflet-left {
 			left: 50px
 		}
-	}
-
-	@media (min-width:768px) {
-		.sidebar-right~.sidebar-map .leaflet-right {
-			transition: right .5s
-		}
-	}
-
-	@media (min-width:768px) and (max-width:991px) {
-		.sidebar-right~.sidebar-map .leaflet-right {
-			right: 315px
-		}
-	}
-
-	@media (min-width:992px) and (max-width:1199px) {
-		.sidebar-right~.sidebar-map .leaflet-right {
-			right: 400px
-		}
-	}
-
-	@media (min-width:1200px) {
-		.sidebar-right~.sidebar-map .leaflet-right {
-			right: 470px
-		}
-	}
-
-	@media (min-width:768px) {
-		.sidebar-right.collapsed~.sidebar-map .leaflet-right {
-			right: 50px
-		}
-	}
-
-	.leaflet-left {
-		left: 50px
-	}
-</style>
+	</style>
 </head>
 <body>
-	<script src=https://unpkg.com/leaflet@1.0.2/dist/leaflet.js></script><script src=./js/leaflet.contextmenu.js></script>
+	<script src=https://unpkg.com/leaflet@1.0.2/dist/leaflet.js></script>
+	<script src=./js/leaflet.contextmenu.js></script>
 	<div class=sidebar-map id=map>
 		<div class="collapsed sidebar" id=sidebar>
 			<div class=sidebar-tabs>
@@ -698,8 +699,8 @@
 		}, {
 			"nom": "Cimetière",
 			"categorie": "Services publics ou institution",
-			"lat": 47.50704007596153,
-			"long": 3.3585366426379037,
+			"lat": 47.50691334325977,
+			"long": 3.3577442660210375,
 			"texte": "Cimetière"
 		}, {
 			"nom": "Agence postale",
@@ -911,7 +912,7 @@
 			"categorie": "Lieux de culte",
 			"lat": 47.503679142901476,
 			"long": 3.346515969786666,
-			"texte": "L'église Saint-Pierre-aux-Liens d'Étais-la-Sauvin se situe au cœur du village d'Étais-la-Sauvin, dans l'Yonne (Bourgogne-Franche-Comté), à proximité des limites orientales des anciennes fortifications. L'église a connu trois périodes successives d'édifications : le XIIe siècle, le XIVe siècle et la fin du XVe siècle.",
+			"texte": "<h3 style='text-align: center;'>L'église Saint-Pierre-aux-Liens d'Étais-la-Sauvin</h3> Elle se situe au cœur du village d'Étais-la-Sauvin, dans l'Yonne (Bourgogne-Franche-Comté), à proximité des limites orientales des anciennes fortifications. L'église a connu trois périodes successives d'édifications : le XIIe siècle, le XIVe siècle et la fin du XVe siècle.",
 		}, {
 			"nom": "Chapelle de Chevigny",
 			"categorie": "Lieux de culte",
@@ -921,8 +922,8 @@
 		}, {
 			"nom": "Chapelle du cimetière",
 			"categorie": "Lieux de culte",
-			"lat": 0,
-			"long": 0,
+			"lat": 47.50700212312354,
+			"long": 3.358559657548467,
 			"texte": "Chapelle du cimetière"
 		}, {
 			"nom": "Chemins de randonnée",
@@ -942,13 +943,13 @@
 			"lat": 47.507055,
 			"long": 3.346994,
 			"texte": "Déchetterie"
-		}, {
+		}, /*{
 			"nom": "Points d'apports",
 			"categorie": "Déchetterie et points d'apports",
 			"lat": 0,
 			"long": 0,
 			"texte": "Points d'apports"
-		}, {
+		}, */{
 			"nom": "Bel Air",
 			"categorie": "Hameau",
 			"lat": 47.48266889720746,
@@ -969,44 +970,44 @@
 		}, {
 			"nom": "Breuilleron",
 			"categorie": "Hameau",
-			"lat": 0,
-			"long": 0,
+			"lat": 47.51718659830069,
+			"long": 3.365488138164255,
 			"texte": "Breuilleron"
 		}, {
 			"nom": "Chevigny",
 			"categorie": "Hameau",
-			"lat": 0,
-			"long": 0,
+			"lat": 47.50459889696142,
+			"long": 3.3037499688439262,
 			"texte": "Chevigny"
 		}, {
 			"nom": "La Batisse",
 			"categorie": "Hameau",
-			"lat": 0,
-			"long": 0,
+			"lat": 47.49231096405518,
+			"long": 3.348465371040287,
 			"texte": "La Batisse"
 		}, {
 			"nom": "La Bobinerie",
 			"categorie": "Hameau",
-			"lat": 0,
-			"long": 0,
+			"lat": 47.52066460650626,
+			"long": 3.3690428115183355,
 			"texte": "La Bobinerie"
 		}, {
 			"nom": "La Berdonnière",
 			"categorie": "Hameau",
-			"lat": 0,
-			"long": 0,
+			"lat": 47.52121999522432,
+			"long": 3.4048028961747945,
 			"texte": "La Berdonnière"
 		}, {
 			"nom": "La Fontaine",
 			"categorie": "Hameau",
-			"lat": 0,
-			"long": 0,
+			"lat": 47.50331398058439,
+			"long": 3.3584489688432924,
 			"texte": "La Fontaine"
 		}, {
 			"nom": "La Galarderie",
 			"categorie": "Hameau",
-			"lat": 0,
-			"long": 0,
+			"lat": 47.48024600821843,
+			"long": 3.3524651845321505,
 			"texte": "La Galarderie"
 		}, {
 			"nom": "La Michotterie",
@@ -1017,110 +1018,104 @@
 		}, {
 			"nom": "La Poterie",
 			"categorie": "Hameau",
-			"lat": 0,
-			"long": 0,
+			"lat": 47.5275457363279,
+			"long": 3.3470476691903603,
 			"texte": "La Poterie"
 		}, {
 			"nom": "La Sauvin",
 			"categorie": "Hameau",
-			"lat": 0,
-			"long": 0,
+			"lat": 47.53609582289315,
+			"long": 3.35769989263845,
 			"texte": "La Sauvin"
 		}, {
 			"nom": "Le Colombier",
 			"categorie": "Hameau",
-			"lat": 0,
-			"long": 0,
+			"lat": 47.49407170476213,
+			"long": 3.3661959120507667,
 			"texte": "Le Colombier"
-		}, {
-			"nom": "",
-			"categorie": "Hameau",
-			"lat": 0,
-			"long": 0,
-			"texte": ""
 		}, {
 			"nom": "Le Fey",
 			"categorie": "Hameau",
-			"lat": 0,
-			"long": 0,
+			"lat": 47.50855540244043,
+			"long": 3.3974844351192397,
 			"texte": "Le Fey"
 		}, {
 			"nom": "Le Grelat",
 			"categorie": "Hameau",
-			"lat": 0,
-			"long": 0,
+			"lat": 47.49482494499113,
+			"long": 3.3736381245030667,
 			"texte": "Le Grelat"
 		}, {
 			"nom": "Le Tremblay",
 			"categorie": "Hameau",
-			"lat": 0,
-			"long": 0,
+			"lat": 47.49559804875159,
+			"long": 3.359179884182269,
 			"texte": "Le Tremblay"
 		}, {
 			"nom": "Les Bourys, Les Bourhys, Les Bourris ou Les Bourrys",
 			"categorie": "Hameau",
-			"lat": 0,
-			"long": 0,
+			"lat": 47.48078423661865,
+			"long": 3.350726231396978,
 			"texte": "Les Bourys, Les Bourhys, Les Bourris ou Les Bourrys"
 		}, {
 			"nom": "Les Gallois",
 			"categorie": "Hameau",
-			"lat": 0,
-			"long": 0,
+			"lat": 47.5146168868917,
+			"long": 3.3274209688499585,
 			"texte": "Les Gallois"
 		}, {
 			"nom": "Les Griffes",
 			"categorie": "Hameau",
-			"lat": 0,
-			"long": 0,
+			"lat": 47.495516049475974,
+			"long": 3.3630926460902884,
 			"texte": "Les Griffes"
 		}, {
 			"nom": "Les Joux",
 			"categorie": "Hameau",
-			"lat": 0,
-			"long": 0,
+			"lat": 47.51385380248709,
+			"long": 3.3803169688494417,
 			"texte": "Les Joux"
 		}, {
 			"nom": "Les Mouillens",
 			"categorie": "Hameau",
-			"lat": 0,
-			"long": 0,
+			"lat": 47.49270406929004,
+			"long": 3.368365138149873,
 			"texte": "Les Mouillens"
 		}, {
 			"nom": "Les Plots",
 			"categorie": "Hameau",
-			"lat": 0,
-			"long": 0,
+			"lat": 47.49331996071241,
+			"long": 3.343853082681444,
 			"texte": "Les Plots"
 		}, {
 			"nom": "Les Rameaux",
 			"categorie": "Hameau",
-			"lat": 0,
-			"long": 0,
+			"lat": 47.49299994811742,
+			"long": 3.326830968837026,
 			"texte": "Les Rameaux"
 		}, {
 			"nom": "Les Villenots ou Les Vilnots",
 			"categorie": "Hameau",
-			"lat": 0,
-			"long": 0,
+			"lat": 47.489305349116485,
+			"long": 3.3349585489560427,
 			"texte": "Les Villenots ou Les Vilnots"
 		}, {
 			"nom": "Montagne Mont-Foin",
 			"categorie": "Hameau",
-			"lat": 0,
-			"long": 0,
+			"lat": 47.50109143130567,
+			"long": 3.35576491336881,
 			"texte": "Montagne Mont-Foin"
 		}, {
 			"nom": "Moulin Boudier",
 			"categorie": "Hameau",
-			"lat": 0,
-			"long": 0,
+			"lat": 47.51833351152825,
+			"long": 3.346802128188242,
 			"texte": "Moulin Boudier"
 		}, {
 			"nom": "Vellery",
 			"categorie": "Hameau",
-			"lat": 0,
-			"long": 0,
+			"lat": 47.52427569572102,
+			"long": 3.3291279688556275,
 			"texte": "Vellery"
 		}];
 
@@ -1314,5 +1309,6 @@
 			}
 		}
 	</script>
+
 </body>
 </html>
