@@ -451,6 +451,10 @@
 		.leaflet-left {
 			left: 50px
 		}
+
+		#btnForm {
+			margin-right: 1rem;
+		}
 	</style>
 </head>
 <body>
@@ -496,7 +500,7 @@
 						<span class=pink></span>
 						<input checked id=Déchetterie type=checkbox>Déchetterie et points d'apports<br/>
 						<span class=cyan></span>
-						<input checked id=Hameau type=checkbox>Hameaux<br/><br/><button id=btnForm>Filtrer</button>
+						<input checked id=Hameau type=checkbox>Hameaux<br/><br/><button id=btnForm>Filtrer</button><button id=uncheck>Tout déselectionner</button>
 					</div>
 				</div>
 				<div class=sidebar-pane id=github>
@@ -1193,12 +1197,54 @@
 				vuePlan.addTo(map);
 				break;
 				default:
-				alert("Erreur");
+				alert("Une erreur est survenue : Impossible de changer le type de map, l'une des deux vues n'existe plus");
 				break;
 			}
 			typeOfMap === false ? typeOfMap = true : typeOfMap = false;
 		});
 
+		let boolUncheck = false;
+		uncheck.onclick = () => uncheckCheckbox();
+
+		function uncheckCheckbox(){
+			boolUncheck == true ? boolUncheck = false : boolUncheck = true; 
+			switch(boolUncheck){
+				case(true):
+				document.getElementById("ServicesPublics").checked = false;
+				document.getElementById("Education").checked = false;
+				document.getElementById("Culture").checked = false;
+				document.getElementById("Commerces").checked = false;
+				document.getElementById("VenteDirecte").checked = false;
+				document.getElementById("Artisans").checked = false;
+				document.getElementById("Dormir").checked = false;
+				document.getElementById("Santé").checked = false;
+				document.getElementById("LieuxCulte").checked = false;
+				document.getElementById("Tourisme").checked = false;
+				document.getElementById("Déchetterie").checked = false;
+				document.getElementById("Hameau").checked = false;
+				filter();
+				uncheck.innerText = "Tout selectionner";
+				break;
+				case(false):
+				document.getElementById("ServicesPublics").checked = true;
+				document.getElementById("Education").checked = true;
+				document.getElementById("Culture").checked = true;
+				document.getElementById("Commerces").checked = true;
+				document.getElementById("VenteDirecte").checked = true;
+				document.getElementById("Artisans").checked = true;
+				document.getElementById("Dormir").checked = true;
+				document.getElementById("Santé").checked = true;
+				document.getElementById("LieuxCulte").checked = true;
+				document.getElementById("Tourisme").checked = true;
+				document.getElementById("Déchetterie").checked = true;
+				document.getElementById("Hameau").checked = true;
+				filter();
+				uncheck.innerText = "Tout déselectionner";
+				break;
+				default:
+				break;
+			}
+		}
 
 		let marker;
 
@@ -1301,7 +1347,7 @@
 							break;
 
 							default:
-							marker = L.marker([coordonnees[i]['lat'], coordonnees[i]['long']]).addTo(map).bindPopup(coordonnees[i]['texte']).addTo(myMarkers)
+							marker = L.marker([coordonnees[i]['lat'], coordonnees[i]['long']]).addTo(map).bindPopup(coordonnees[i]['texte']).addTo(myMarkers);
 							break;
 						}
 					}
